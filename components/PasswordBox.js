@@ -1,13 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
+import Clipboard from "expo-clipboard";
 
 const width = Dimensions.get("window").width;
 
-export default ({ password, features, lenght }) => {
+export default ({ password }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => Clipboard.setString(password)}
+    >
       <Text style={styles.text}>{password}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
